@@ -5,9 +5,13 @@
 
 Git Profile helps you manage multiple Git identities and switch between them per repository.
 
+Pair it with **[git-ssh](https://github.com/kuyacarlo/ssh-profile)** (same profile name) for per-repo SSH keys without `~/.ssh/config` Host aliases. Full install for both tools: **[docs/INSTALL.md](./docs/INSTALL.md)**.
+
 ![](./demo/demo.gif)
 
 ## Installation
+
+See **[docs/INSTALL.md](./docs/INSTALL.md)** for git-profile and git-ssh together. git-profile only:
 
 ### Homebrew
 
