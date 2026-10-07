@@ -9,7 +9,7 @@ import (
 )
 
 // List returns `list` command
-func List(cfg storage, v vcs) *cobra.Command {
+func List(cfg storage, _ vcs) *cobra.Command {
 	return &cobra.Command{
 		Use:     "list",
 		Aliases: []string{"l"},
@@ -17,7 +17,12 @@ func List(cfg storage, v vcs) *cobra.Command {
 		Long:    "Display the list of available profiles.",
 		Example: "git-profile list",
 		Run: func(cmd *cobra.Command, _ []string) {
-			check(cmd, cfg, v)
+			if cfg.Len() == 0 {
+				ui.PrintErrln(cmd, ui.ErrorStyle, `There are no available profiles.`)
+				ui.Println(cmd, ui.SuccessStyle, `To add a new profile, use the following command:`)
+				ui.Println(cmd, ui.DefaultStyle, `$ git-profile add`)
+				return
+			}
 
 			ui.Println(cmd, ui.InfoStyle, "Available profiles:")
 

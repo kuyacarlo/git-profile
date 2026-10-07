@@ -29,10 +29,7 @@ func TestList(t *testing.T) {
 
 	vcs := &vcsMock{
 		IsRepositoryFunc: func() bool {
-			return true
-		},
-		GetFunc: func(key string) (string, error) {
-			return "home", nil
+			return false
 		},
 	}
 
